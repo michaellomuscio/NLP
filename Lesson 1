@@ -62,6 +62,16 @@ tidy_hgwells
 # Count up the words
 tidy_hgwells %>%
   count(word, sort = TRUE)
+  
+# Load the Bronte Sister's books.  
+bronte <- gutenberg_download(c(1260,768,969,9182,767))
+
+tidy_bronte <- bronte %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words)
+
+tidy_bronte %>%
+  count(word, sort = TRUE)
 
 # Code chunk 1
 frequency <- bind_rows(mutate(tidy_bronte, author = "Brontë Sisters"),
