@@ -58,7 +58,7 @@ tidy_hgwells
 tidy_hgwells %>%
   count(word, sort = TRUE)
 
-# Code chunck 1
+# Code chunk 1
 frequency <- bind_rows(mutate(tidy_bronte, author = "Brontë Sisters"),
                        mutate(tidy_hgwells, author = "H.G. Wells"),
                        mutate(tidy_books, author = "Jane Austen")) %>%
