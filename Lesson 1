@@ -42,4 +42,19 @@ tidy_books %>%
   geom_col() +
   xlab(NULL) +
   coord_flip()
+  
+  
+# Load H.G. Wells Data
+hgwells <- gutenberg_download(c(35,36,5230,159))
+
+# Unnest Tokens and remove stop words from H.G. Wells
+tidy_hgwells <- hgwells %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words)
+
+tidy_hgwells
+
+# Count up the words
+tidy_hgwells %>%
+  count(word, sort = TRUE)
 
