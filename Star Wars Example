@@ -53,7 +53,7 @@ sw_sent %>%
 # Add 'movie' and linenumber variables.
 tidy_sw <- mutate(tidy_sw, movie = "A New Hope")
 
-linenumber <- tibble(linenumber = 1:15861)
+linenumber <- tibble(linenumber = 1:dim(tidy_sw)[1])
 
 tidy_sw <- bind_cols(tidy_sw,linenumber)
 
